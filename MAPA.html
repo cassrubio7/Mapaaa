@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Courgette&family=Lilita+One&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa de nuestros lugares❤️🌍</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        #map { height: 600px; width: 100%; }
+    </style>
+</head>
+<body>
+    <header class="lilita-one-regular">
+        <h1>Mapa de nuestros lugares💖🌍</h1>
+      </header>
+    
+      <section class="intro courgette-regular">
+        <p>Aquí muchos de los lugares especiales que hemos visitado juntos, con algo de historia. Explora toda la CDMX y Puebla, da clic en cada marcador para ver más detalles❤️</p>
+      </section>
+    
+      <section class="fechas lilita-one-regular">
+        <p> 2022 a 2025❤️</p>
+      </section>
+
+      <div id="map"></div>
+
+      
+<section class="fin courgette-regular">
+    <p>
+      ¿Cuándo el próximo?🗺️💖
+    </p>
+  </section>
+    
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        var map = L.map('map').setView([19.4326, -99.1332], 13);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+        }).addTo(map);
+
+        var lugares = [
+            {
+                nombre: "MUNAL",
+                descripcion: "Y aquí empezó todo. No oficial, pero nuestra primera salida.♡ Bonitos recuerdos.♡ ", 
+                lat: 19.436192768773076,
+                lon: -99.1394108664977,
+                imagen: "imagenes/MUNAL.jpg"
+            },
+            {
+                nombre: "Planetario Luis Enrique Erro",
+                descripcion: "El  show en el planetario y ese día fue muy bonito, gran salida, aunque llovió horrible y nos refugiamos en el Liverpool jaja", 
+                lat: 19.496224132332234,
+                lon: -99.13995118573986,
+                imagen: "imagenes/PLANETARIO.jpg"
+            },
+   {
+                nombre: "Cinepolis Diana",
+                descripcion: "Todo el show que fue conseguir los boletos para la película de Jacobo, fue hace muchooo, qué bonito",
+                lat: 19.42584712286278,
+                lon: -99.17140280929482,
+                imagen: "imagenes/DIANA.jpg"
+            },
+   {
+                nombre: "ZOCALO",
+                descripcion: "Punto de muchos eventos, como las verbenas navideñas, el ballet de Amalia Hernandez. El sonidero gratis fue un gran día, comiendo boneless y todos empapados por la lluvia, y bailando.",
+                lat: 19.432454873751688, 
+                lon: -99.13406006211684,
+                imagen: "imagenes/ZOCALO.jpg"
+            },
+   {
+                nombre: "Plaza de Santo Domingo",
+                descripcion: "Uno de mis momentos favoritos de tooodos, siempre será el Concierto gratis de La Garfield. Una joya, grandísima experiencia escuharlo juntos, preciosísima velada",
+                lat: 19.4373347905692, 
+                lon: -99.13408957092224,
+                imagen: "imagenes/SANTODOMINGO.jpg"
+            },
+   {
+                nombre: "Palacio de Minería",
+                descripcion: "Aquí vimos el concierto sinfónico, fue muy bueno y un día muy agradable. Además de las feria de libro",
+                lat: 19.435848393305516,
+                lon: -99.13956001253653,
+                imagen: "imagenes/MINERIA.jpg"
+            },
+   {
+                nombre: "Alameda Central",
+                descripcion: "Pasear, comprar chicharrones blancos, y bailar cumbiassss.❤",
+                lat: 19.43594207662209, 
+                lon: -99.1439326761276,
+                imagen: "imagenes/ALAMEDA.jpg"
+            },
+   {
+                nombre: "Museo del Pulque",
+                descripcion: "Estuvo interesante recorrer el museo, y todas las pruebas de pulque, buenísimas. Que se repita.",
+                lat: 19.437714094715908, 
+                lon: -99.1470647377828,
+                imagen: "imagenes/PULQUE.jpg"
+            },
+   {
+                nombre: "MUAC",
+                descripcion: "Fue un bello día con el recorrido explicado por mi amiga, gran exposición y el concierto en la explanada.",
+                lat: 19.3147880968179,
+                lon: -99.18543865726117,
+                imagen: "imagenes/MUAC.jpg"
+            },
+   {
+                nombre: "Chapultepec",
+                descripcion: "Una bonita cita para leer.",
+                lat: 19.420043552069977, 
+                lon: -99.17963868600329,
+                imagen: "imagenes/CHAPU.jpg"
+            },
+   {
+                nombre: "Jardín Botánico de Chapultepec",
+                descripcion: "El picnic nocturno hace más de dos años. Estaba muy nerviosa y recuerdo fue nuestro primer beso, muy bello. Siempre lo recuerdo, fue una gran noche.❤",
+                lat: 19.423947462409046, 
+                lon: -99.18196147240457,
+                imagen: "imagenes/JARDIN.jpg"
+            },
+   {
+                nombre: "CENART",
+                descripcion: "Numerosas citas, eventos, conciertos y exposiciones. Además de atardeceres preciosos. Pero no se me olvidará el día de los sello/tatuajes, muy ameno, y tú pensando que te tatuaron un gorila jsjsj.",
+                lat: 19.356550025740358, 
+                lon: -99.14115740191376,
+                imagen: "imagenes/CENART.jpg"
+            },
+   {
+                nombre: "Cineteca de las Artes",
+                descripcion: "Conociendo la nueva cineteca",
+                lat: 19.35593286802546, 
+                lon: -99.13522572290171,
+                imagen: "imagenes/CINEARTES.jpg"
+            },
+   {
+                nombre: "Cineteca Nacional de México",
+                descripcion: "Mucha gracias por las recomendaciones, hemos encontrado muy buenas películas en general y son bonitos recuerdos",
+                lat: 19.360615777708475, 
+                lon: -99.16452353236882,
+                imagen: "imagenes/CINETECA.jpg"
+            },
+   {
+                nombre: "Depa de la Anáhuac",
+                descripcion: "Rutinas, días cotidianos, citas para dormir, comer, ver series, etc. Gracias por tanto y porque siempre fue un ambiente agradable y seguro. Gracias por compartir tus días y parte de tu casa.",
+                lat: 19.44519748992571, 
+                lon: -99.1761273789049,
+                imagen: "imagenes/DEPA.jpg"
+            },
+   {
+                nombre: "BAGO CAFÉ",
+                descripcion: "El co-working, desayunos y frappes 10/10.",
+                lat: 19.448226003196083, 
+                lon: -99.17536306872296,
+                imagen: "imagenes/BAGO.jpg"
+            },
+   {
+                nombre: "Esquites del Metro Colegio",
+                descripcion: "Los mejores esquites que he probado jaja",
+                lat: 19.448386004081634, 
+                lon: -99.17245863125363,
+                imagen: "imagenes/ESQUITES.jpg"
+            },
+   {
+                nombre: "Tianguis del Salesiano",
+                descripcion: "Grandes días comprando el mandado, comiendo quesadillas, palomitas y chamoyadas. Gracias por incluirme en partes de tu rutina.",
+                lat: 19.449133074074094, 
+                lon: -99.17763096194412,
+                imagen: "imagenes/TIANGUIS.jpg"
+            },
+   {
+                nombre: "Iglesia Neogótica",
+                descripcion: "Fue muy interesante conocer la iglesia, ver sus detalles exterior y del interior, además de una excelente vista con los atardeceres",
+                lat: 19.44571317774281,
+                lon: -99.17745681302111,
+                imagen: "imagenes/IGLESIA.jpg"
+            },
+   {
+                nombre: "Pico del Águila",
+                descripcion: "Fue una ruta desafiante para mí por la altura, gracias por invitarme y apoyarme. Recuerdo con mucho cariño ese día, con caídas y calambres jsj, lo valió totalmente. Preciosa vista y compañía.",
+                lat: 19.213129658687144, 
+                lon: -99.25684503845486,
+                imagen: "imagenes/PICO.jpg"
+            },
+   {
+                nombre: "Casa Francia",
+                descripcion: "De las primeras veces que salimos, recuerdo que después de como un mes, me trajiste mi regalo de cumpleaños jajaj. Y la conferencia en Francés",
+                lat: 19.42806752805761, 
+                lon: -99.16217501887427,
+                imagen: "imagenes/CASAFRANCIA.jpg"
+            },
+   {
+                nombre: "Casa",
+                descripcion: "Mi casa, tu casa. Siempre bienvenido, aunque no esté yo",
+                lat: 19.398225898771543,
+                lon: -99.13141743978649,
+                imagen: "imagenes/CASA.jpg"
+            },
+   {
+                nombre: "Tacos El Farolito",
+                descripcion: "Vivaaa la promoción de taquitos de pastor, excelentes cenas y pláticas",
+                lat: 19.39870303367551, 
+                lon: -99.12979628920105,
+                imagen: "imagenes/FAROLITO.jpg"
+            },
+   {
+                nombre: "Tacos Viaducto",
+                descripcion: "El mejor precio de tacos, y en un momento estuvieron muy muy buenos. Salvadores cuando llegabamos con hambre.",
+                lat: 19.40087064064728, 
+                lon: -99.13661393535588,
+                imagen: "imagenes/TACOS.jpg"
+            },
+ {
+                nombre: "Monumento a la Revolución",
+                descripcion: "Punto de encuentro y de reuniones rápidas, también de pláticas muy importantes para mí y siempre coinciden ser ahí",
+                lat: 19.436208014572124, 
+                lon: -99.15462973068902,
+                imagen: "imagenes/REVO.jpg"
+            },
+ {
+                nombre: "Plaza Toreo",
+                descripcion: "Yo tenía muchos años que no iba por la zona hasta que nos conocimos, como la comida con tus tíos y el café con tu mamá uwu",
+                lat: 19.454312345581336, 
+                lon: -99.2189231157632,
+                imagen: "imagenes/TOREO.jpg"
+            },
+ {
+                nombre: "Centro Citibanamex",
+                descripcion: "Gracias por acompañarme a la exposición de seguridad, fue de gran ayuda y gracias por la asesoría siempre en el tema",
+                lat: 19.440529859771186, 
+                lon: -99.22390753324999,
+                imagen: "imagenes/EXPO.jpg"
+            },
+ {
+                nombre: "Plaza de Toros",
+                descripcion: "De los mejores regalos fueron los boletos para compartir el concierto de Camilo VII, la pasé increíble, estás en muchas canciones de ellos y creo que gracias a ti me hice mucho más fan de la banda. Gracias por un momento más compartido tan bello, toda la emoción, el show, luces,música y compañía",
+                lat: 19.382978410520792,
+                lon: -99.1800237322966,
+                imagen: "imagenes/CAMILO.jpg"
+            },
+ {
+                nombre: "Museo Experimental el Eco",
+                descripcion: "Recuerdo que me gustó mucho ese dia, pequeña exposición interesante, hablamos de arquitectos, pasamos al tianguis cerca y regresamos a cocinar",
+                lat: 19.433470384881932, 
+                lon:-99.16118203660457,
+                imagen: "imagenes/ECO.jpg"
+            },
+ {
+                nombre: "Lago Algo",
+                descripcion: "En Chapultepec bien perdidos, que ni llegamos a tiempo al evento jaja. Pero fue un bonito día, y compramos los famosos changuitos jsj.❤",
+                lat: 19.416734926716945, 
+                lon: -99.20014977733238,
+                imagen: "imagenes/LAGO.jpg"
+            },
+ {
+                nombre: "Wild Fork",
+                descripcion: "Suena que no, pero para mí es un gran plan ir a comprar la despensa aquí y tooooodos los detalles de la rutina. gracias por compartirla, y por el pollo, alitas, empanadas y todo. Sieme es un gran plan preparar comida.",
+                lat: 19.45317154959782, 
+                lon: -99.18120976512364,
+                imagen: "imagenes/WILD.jpg"
+            },
+ {
+                nombre: "Los Pinos",
+                descripcion: "Sol, exposiciones, paseo, dinosaurios y pláticas",
+                lat: 19.415610992838715, 
+                lon: -99.19119991975424,
+                imagen: "imagenes/PINOS.jpg"
+            },
+ {
+                nombre: "Casa Luis Barragán",
+                descripcion: "Hemos pasado por diferentes rutas y siempre salen datos interesantes sobre él y la casa",
+                lat: 19.41118006192359, 
+                lon:-99.19236908425744,
+                imagen: "imagenes/BARRAGAN.jpg"
+            },
+ {
+                nombre: "Museo de Arte Popular",
+                descripcion: "Siendo catadores de exposiciones, piñatas, papalotes, bailes, etc. Tengo muy bonitos recuerdos en el MAP",
+                lat: 19.43373612887912, 
+                lon: -99.14629431849569,
+                imagen: "imagenes/MAP.jpg"
+            },
+ {
+                nombre: "Facultad de Ciencias",
+                descripcion: "Hace muchos años que bailamos en un bailongo de mi Fac, y recuerdo dije “ohh eso sí es bailar cumbia”.",
+                lat: 19.32427774748649, 
+                lon: -99.1791304624304,
+                imagen: "imagenes/FAC.jpg"
+            },
+ {
+                nombre: "Kiosco Morisco",
+                descripcion: "Después de la cena de aniversario, fue bonito pasear en la noche por el kiosco. Recuerdo tener mucho sueño por el vino jsjs. Muy a gusto esa noche.",
+                lat: 19.44974235111456, 
+                lon: -99.15684003638277,
+                imagen: "imagenes/KIOSCO.jpg"
+            },
+ {
+                nombre: "Amore Mio Trattoria",
+                descripcion: "Bonita y deliciosa cena de Aniversario. Fue muy agradable, para la próxima pides pulpo jsj. Una bonita celebración, muchas gracias por tanto.❤",
+                lat: 19.449137144777648, 
+                lon: -99.16004869221825,
+                imagen: "imagenes/AMORE.jpg"
+            },
+ {
+                nombre: "Monkey Papas",
+                descripcion: "Vivan las Monkey Papas, y creo que fue el último día que nos vimos antes de que fueras a SISAL",
+                lat: 19.44968938101015, 
+                lon: -99.1516454397994,
+                imagen: "imagenes/MONKEY.jpg"
+            },
+ {
+                nombre: "Palacio de Cultura Banamex",
+                descripcion: "Con el tour de ofrendas que hicimos en Dia de Muertos, además de otras visitas, hemos visto varias expos ahí. Muy buenos días",
+                lat: 19.43378085655084, 
+                lon: -99.13905716084912,
+                imagen: "imagenes/CULTURA.jpg"
+            },
+ {
+                nombre: "Palacio Postal",
+                descripcion: "Muy bonito plan el ir a dejar las Cartas de los Reyes Magos y ver la decoración navideña. Mi época favorita",
+                lat: 19.435558923756414,
+                lon: -99.14024006906072,
+                imagen: "imagenes/POSTAL.jpg"
+            },
+ {
+                nombre: "Feria del Pulque",
+                descripcion: "En la explanada de Tlatelolco, probando todos los sabores de Pulque y el concierto. Siento que han pasado muchísimos años jsjs. Y cenamos los tacos que tanto decías, buenísimos",
+                lat: 19.454605186955753,
+                lon: -99.14326685160637,
+                imagen: "imagenes/TLATE.jpg"
+            },
+ {
+                nombre: "Cine Plaza de las Estrellas",
+                descripcion: "Me gustó mucho esa tarde que fuimos al cine cerca de tu casa, gran película y gran tarde. Muy bonito.",
+                lat: 19.4357869719044,
+                lon: -99.1706161322929,
+                imagen: "imagenes/ESTRELLAS.jpg"
+            },
+ {
+                nombre: "Centro Cultural El Queso",
+                descripcion: "Tu entrega de diplomas, fue muy especial. Siempre orgullosa de todos tus logros, gracias por invitarme e incluirme con tu familia",
+                lat: 19.49636403224559,
+                lon: -99.13551163421518,
+                imagen: "imagenes/QUESO.jpg"
+            },
+ {
+                nombre: "Restaurante Club España",
+                descripcion: "Gracias por acompañarme a la comida de mi titulación, me alegra que conozcas a toda mi familia ya y que estuvieras en ese momento. Eres parte muy importante de ello.",
+                lat: 19.341634705036167, 
+                lon: -99.18927534858345,
+                imagen: "imagenes/ESPAÑA.jpg"
+            },
+ {
+                nombre: "Jardín de las Artes Gráficas",
+                descripcion: "Agradable los domingos explorando la Doctores, gracias por compartirme el proceso de tu nueva casa. Por muchos momentos más por esa zona.❤",
+                lat: 19.412932646200794, 
+                lon: -99.14781387469687,
+                imagen: "imagenes/OBRERA.jpg"
+            },
+            {
+                nombre: "Gran Baile de Harry Potter",
+                descripcion: "Fue una gran experiencia, desde maquillarnos en el Zócalo jsj, planear el diseño, el vestuario, ir a esa casa antigua, la decoración, dinámicas, baile, foto, toooodo.",
+                lat: 19.428595239722902, 
+                lon: -99.13584161108271,
+                imagen: "imagenes/BAILE.jpg"
+            },
+ {
+                nombre: "Pizzería La Santa",
+                descripcion: "Buenísima elección de lugar y pizzas, que se repita, fue una bonita noche, aunque íbamos muy hambreados jsjs",
+                lat: 19.438032572557923, 
+                lon: -99.16400442084536,
+                imagen: "imagenes/PIZZA.jpg"
+            },
+ {
+                nombre: "Casa de mi abuelo y tíos",
+                descripcion: "Espero pronto puedas conocer la casa donde creció mi mamá, en la Magdalena Contreras. Fue mi lugar favorito por mucho tiempo, significa mucho para mí y su jardín es muy bello e importante en mi vida.",
+                lat: 19.33046690695623, 
+                lon: -99.22820016216845,
+                imagen: "imagenes/CASAEN.jpg"
+            },
+ {
+                nombre: "Mercado de Jamaica",
+                descripcion: "Muy bonito ir viendo los puestos con decoraciones navideñas y de Día de Muertos. Recuerdo cuando debías comprar para noviembre y fuimos temprano, y directo a la TAPO",
+                lat: 19.40800206840148, 
+                lon: -99.12200044783324,
+                imagen: "imagenes/JAMAICA.jpg"
+            },
+ {
+                nombre: "Metro Viaducto",
+                descripcion: "Cuántas pláticas no ha escuchado el metro, muchas gracias por el tiempo y las conversaciones. Hasta presenció el inicio formal de la relación un 4 de mayo del 2023 jaja.❤",
+                lat: 19.400899658642768,
+                lon: -99.13691900883329,
+                imagen: "imagenes/VIADUCTO.jpg"
+            },
+ {
+                nombre: "Little Caesars Pizza",
+                descripcion: "Creo que hemos tenido planes muy improvisados comiendo aquí jsjs y me la he pasado muy bien, como en mi cumpleaños cenando pizza. uwu",
+                lat: 19.40126183205037,
+                lon:  -99.13656802985261,
+                imagen: "imagenes/LITTLE.jpg"
+            },
+ {
+                nombre: "Loncheria Don Toribio",
+                descripcion: "Es un ambiente y menú agradable cuando comemos aquí, días muy a gusto, que además fue el lugar para platicar sobre formalizar jsj",
+                lat: 19.432962705588864, 
+                lon: -99.13854262710227,
+                imagen: "imagenes/TORIBIO.jpg"
+            },
+ {
+                nombre: "Museo de Arte Moderno",
+                descripcion: "Muy bonitas exposiciones en ese museo. Cuando fuimos después de un paseo largo y estuvimos todo ese domingo juntos, creo que ha sido de mis días favoritos de toooodos. Recuerdo subiste una historia <3 donde yo parecía camello jsj. Fue muy bello todo el recorrido y toda la tarde.❤",
+                lat: 19.423105364325174, 
+                lon: -99.17966754643847,
+                imagen: "imagenes/MAM.jpg"
+            },
+ {
+                nombre: "El Consuelo del Café",
+                descripcion: "Aprecio, valoro y atesoro mucho los pequeños momentos libres de la rutina para simplemente ir a comer o tomar algo.❤",
+                lat: 19.39587652806399, 
+                lon: -99.13357429479301,
+                imagen: "imagenes/CAFE.jpg"
+            }, 
+ {
+                nombre: "Tianguis Río Blanco",
+                descripcion: "Claro que jamás olvidaré la gran noche de ir al famoso tianguis, buscar playeras de banda y confundir The Beatles con Los Románticos de Zacatecas jajaj",
+                lat: 19.448386004081634, 
+                lon: -99.11212646076144,
+                imagen: "imagenes/RIOBLANCO.jpg"
+            },
+  {
+                nombre: "Paseo Destino",
+                descripcion: "Espero que sea la primer salida de muchas.❤",
+                lat: 19.008559902181602, 
+                lon: -98.24536054366821,
+                imagen: "imagenes/DESTINO.jpg"
+            },
+            {
+                nombre: "Puebla",
+                descripcion: "Muchas gracias por invitarme a tu casa, fue muy significativo para mí, y acompañarlos en la ocasión especial. Gracias por compartirlo conmigo.",
+                lat: 18.987937176803182,  
+                lon: -98.27033436254672,
+                imagen: "imagenes/PUEBLA.jpg"
+            },
+            {
+                nombre: "Cholula",
+                descripcion: "Fue un bonito día, bonito paseo, bonito destino, bonita subida, bonita compañía con bonita vista",
+                lat: 19.05817008518393,  
+                lon: -98.30173885491048,
+                imagen: "imagenes/CHOLULA.jpg"
+            },
+            {
+                nombre: "Convento",
+                descripcion: "Recuerdo de nuestra primera procesión jaja",
+                lat: 19.062381701848775,  
+                lon: -98.30462665318747,
+                imagen: "imagenes/CONVENTO.jpg"
+            },
+      {
+                nombre: "Centro Puebla",
+                descripcion: "De mis días y momentos favoritos, pasear y conocer el Centro de Puebla de noche. Muy bello, además de que ir por pulques con la vista y tu compañía es el mejor plan.❤",
+                lat: 19.04275764904818,  
+                lon: -98.19695442470291,
+                imagen: "imagenes/CENTROP.jpg"
+            },
+      {
+                nombre: "Utopía Olini",
+                descripcion: "Tal vez fue muy lejos jsj, pero fue un bonito plan, muy diferente. Y gran actividad volar el papalote, se logró, gracias instructor js uwu",
+                lat: 19.38120761861541,  
+                lon: -99.04389816943885,
+                imagen: "imagenes/PAPALOTE.jpg"
+            }
+        
+        ];
+
+        const miIcono = L.icon({
+  iconUrl: './icon/icon.png', 
+  iconSize: [60, 50],
+  iconAnchor: [20, 40],
+  popupAnchor: [0, -40]
+});
+
+        lugares.forEach(function(lugar) {
+            L.marker([lugar.lat, lugar.lon], { icon: miIcono })
+                .addTo(map)
+                .bindPopup(`<h1>${lugar.nombre}</h1><p>${lugar.descripcion}</p><img src='${lugar.imagen}' width='200px' />`);
+        });
+    </script>
+</body>
+</html>
